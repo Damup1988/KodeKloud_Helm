@@ -1,0 +1,39 @@
+# get help
+helm --help
+
+# search for helm charts in default repo - artifacthub.io
+helm search hub wordpress
+
+# add another repo
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+# list all repos (except the default)
+helm repo list
+
+# remove a repo
+helm repo remove repo_name
+
+# install a chart
+helm install my-release bitnami/wordpress
+
+# install a chart with params
+helm install --set wordpressBlogName="Some Name" my-release bitnami/wordpress
+helm install --set wordpressEmail="damup1988@gmail" my-release bitnami/wordpress
+
+$ install a chart using params from our custom file with values
+helm install --values custom-values.yaml my-release bitnami/wordpress
+
+# list installed releases
+helm list
+
+# pull a chart (archived)
+helm pull bitnami/wordpress
+
+# extract the chart from archive
+helm pull --untar bitnami/wordpress
+
+# instal a chart from the local folder
+helm install my-release ./wordpress
+
+# remove an installed release by name
+helm uninstall my-release
