@@ -32,8 +32,23 @@ helm pull bitnami/wordpress
 # extract the chart from archive
 helm pull --untar bitnami/wordpress
 
-# instal a chart from the local folder
+# install a chart from the local folder
 helm install my-release ./wordpress
+
+# install a chart defining a version
+helm install nginx-release bitmap/nginx --version 7.1.0 
 
 # remove an installed release by name
 helm uninstall my-release
+
+# upgrade a chart
+helm upgrade nginx-release bitmap/nginx
+
+# show history
+helm history nginx-release
+
+# rollback to previous release
+helm rollback nginx-release 1
+
+# create a structure for your helm chart
+helm create nginx-chart
